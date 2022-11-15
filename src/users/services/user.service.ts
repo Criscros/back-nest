@@ -18,8 +18,6 @@ export class UserService {
 
     const createdUser = new this.userModel(createUserDto);
     return createdUser.save();
-  
-
 
   }
 }
