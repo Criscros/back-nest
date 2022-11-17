@@ -28,6 +28,8 @@ export class AuthService {
 
     const { email, password } = userObjectLogin;
     const findUser = await this.userModel.findOne({email})
+    const update = { last_connection: new Date() };
+
     if (!findUser) {
       throw new HttpException('USER_NOT_FOUND', HttpStatus.BAD_REQUEST);
     }
@@ -37,6 +39,9 @@ export class AuthService {
     if(!checkPassword){
       throw new HttpException('PASSWORD_INCORRECT', HttpStatus.BAD_REQUEST);
     }
+
+    this.userModel.findOneAndUpdate({_id:findUser._id},update)
+
     const payload = {id:findUser._id, name:findUser.name}
     const token =  this.jwtService.sign(payload)
 

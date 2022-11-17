@@ -16,6 +16,10 @@ export class User {
   @Prop()
   name :string;
 
+  @Prop({type:Date,default:Date.now})
+  last_connection : Date
+  
+
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

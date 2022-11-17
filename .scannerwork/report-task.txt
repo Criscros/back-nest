@@ -1,0 +1,6 @@
+projectKey=xxx
+serverUrl=http://dev.sonarqube.mydevopsway.online
+serverVersion=9.7.1.62043
+dashboardUrl=http://dev.sonarqube.mydevopsway.online/dashboard?id=xxx
+ceTaskId=AYR-ZBoC7vFSk0OmFbAY
+ceTaskUrl=http://dev.sonarqube.mydevopsway.online/api/ce/task?id=AYR-ZBoC7vFSk0OmFbAY
