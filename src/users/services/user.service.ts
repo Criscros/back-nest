@@ -5,6 +5,7 @@ import { User, UserDocument } from '../schemas/user.schema';
 import { CreateUserDto } from '../dto/create-user.dto';
 import { PokemonService } from '../../service/pokemon.service';
 import { GenericData } from '../../model/generic-data';
+import { map } from 'rxjs';
 
 
 @Injectable()
@@ -34,31 +35,24 @@ export class UserService {
     if(parseInt(index+0) > 1 ){
       offset =  parseInt(index+0) - 10
     }
-    console.log('***',offset);
-    
-    //else{
-    //   result  = offset.toFixed(2)
-    // }
+    const apiPokemon = this.pokemonService.getPokemons(`pokemon/?offset=${offset}&limit=60`)
+    const pokemonsInfo = await apiPokemon.then(async (pokemons)=>{
+          // SET VARIABLES OBJECT...
+          let data = new GenericData();
+          data.info = pokemons
+          
+          let pokemonInfo = await Promise.all(
+            data.info.results.map(async pokemon => {
+              let filmResponse = await this.pokemonService.getPokemons(`pokemon/${pokemon.name}`)
+              return filmResponse
+            })
+          )
+          return pokemonInfo
+    })
 
+    return pokemonsInfo
   
-    
-    // return this.pokemonService.getPokemons(`pokemon/?offset=${offset}&limit=20`)
-      // await Promise.all([
 
-      //   this.pokemonService.getPokemons(`ability/?limit=20&offset=${index}`)
-
-      // ]).then((abilities)=>{
-
-      //   let data = new GenericData();
-      //   data.info = abilities[0];
-
-      //   data.info.results.map((pokemon)=>{
-
-      //     this.pokemonService.getPokemons(`/${pokemon.name}`)
-        
-      //   })
-
-      // })
-      
   }
+
 }
