@@ -7,7 +7,7 @@ export class PokemonService {
   constructor() {
     this.PokemonService = axios.create({
       baseURL: process.env.MS_POKEMON,
-      timeout: 3000,
+      timeout: 5000,
       responseType: 'json'
     })
   }

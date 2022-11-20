@@ -17,4 +17,10 @@ export class UserController {
     findAllByIds(@Param('page') page :number) {
       return this.userService.getPokemons(page);
     }
+    
+    @UseGuards(JwtAuthGuard)
+    @Get('pokemon-details/:id')
+    getDetailsPokemon(@Param('id') id :number) {
+      return this.userService.getDetailsPokemon(id);
+    }
 }
