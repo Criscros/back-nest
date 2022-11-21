@@ -1,8 +1,9 @@
 {
-  "name": "back",
+  "name": "back-nest",
+  "name-repository":"roketfy",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "David Ramirez",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
