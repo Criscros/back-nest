@@ -63,10 +63,12 @@ export class UserService {
 
   
     const extraData = await Promise.all([
+     
       this.pokemonService.getPokemons(`/characteristic/${idPokemon}`),
       this.pokemonService.getPokemons(`/ability/${idPokemon}`),
       this.pokemonService.getPokemons(`/growth-rate/${idPokemon}`),
-      this.pokemonService.getPokemons(`/type/${idPokemon}`)
+      this.pokemonService.getPokemons(`/type/${idPokemon}`),
+      this.pokemonService.getPokemons(`pokemon/${idPokemon}`),
 
     ]).then((responsese)=>{
 
@@ -74,6 +76,8 @@ export class UserService {
         const abilites = responsese[1]
         const growthRate = responsese[2]
         const type = responsese[3]
+        const info = responsese[4]
+
 
         return  {
           succucess: true,
@@ -82,7 +86,8 @@ export class UserService {
             characteristic:characteristic,
             abilites: abilites,
             growthRate: growthRate,
-            type:type
+            type:type,
+            info:info
           }
       }
     })

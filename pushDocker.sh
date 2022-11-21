@@ -14,7 +14,7 @@ else
   VERSION=$1
 fi
 echo "$VERSION"
-aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 877042376449.dkr.ecr.us-east-1.amazonaws.com
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 754234134912.dkr.ecr.us-east-1.amazonaws.com
 docker build -t "$NAME_IMAGE" .
 docker tag "$NAME_IMAGE":latest 877042376449.dkr.ecr.us-east-1.amazonaws.com/"$NAME_IMAGE":latest
 docker tag "$NAME_IMAGE":latest 877042376449.dkr.ecr.us-east-1.amazonaws.com/"$NAME_IMAGE":"$VERSION"
