@@ -20,7 +20,8 @@ export class PokemonService {
             resolve(success.data);
           },
           (error) => {
-            reject(error);
+            resolve([])
+            //reject(error);
           },
         );
     });

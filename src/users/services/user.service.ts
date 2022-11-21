@@ -60,8 +60,9 @@ export class UserService {
     return pokemonsInfo
   }
   async getDetailsPokemon(idPokemon){
-    
-   const extraData = await Promise.all([
+
+  
+    const extraData = await Promise.all([
       this.pokemonService.getPokemons(`/characteristic/${idPokemon}`),
       this.pokemonService.getPokemons(`/ability/${idPokemon}`),
       this.pokemonService.getPokemons(`/growth-rate/${idPokemon}`),
@@ -85,8 +86,6 @@ export class UserService {
           }
       }
     })
-
-
     return extraData
 
   }
