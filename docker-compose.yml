@@ -1,0 +1,52 @@
+version: '3'
+services:
+  #NODE
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: admin-mokita
+    container_name: admin-mokita
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "443:443"
+      - "3000:3000"
+    environment:
+      - MONGO_CONF=mongodb
+      - MONGO_USER=mokitajar
+      - MONGO_PASS=mokitahasbeendrinking*
+      - MONGO_HOST=52.201.237.1
+      - JWT_KEY=Mokita..
+      - MS_POKEMON=https://pokeapi.co/api/v2/
+    # working_dir: /app
+    # volumes:
+    #   - .:/app
+    networks:
+      - app-network
+
+#Redes
+networks:
+  app-network:
+    driver: bridge
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

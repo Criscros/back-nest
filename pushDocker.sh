@@ -20,3 +20,4 @@ docker tag "$NAME_IMAGE":latest 754234134912.dkr.ecr.us-east-1.amazonaws.com/"$N
 docker tag "$NAME_IMAGE":latest 754234134912.dkr.ecr.us-east-1.amazonaws.com/"$NAME_IMAGE":"$VERSION"
 docker push 754234134912.dkr.ecr.us-east-1.amazonaws.com/"$NAME_IMAGE":"$VERSION"
 docker push 754234134912.dkr.ecr.us-east-1.amazonaws.com/"$NAME_IMAGE":latest
+
